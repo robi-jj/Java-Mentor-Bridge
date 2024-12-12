@@ -1,10 +1,14 @@
 package org.mentorbridge.entity;
 
-import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.util.Optional;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Represents an entity mapped to the "EMPLOYEE" table in the database.
@@ -36,8 +40,7 @@ import lombok.NoArgsConstructor;
  * - address: Home or other address related to the employee.
  * - role: Job role or title of the employee within the organization.
  */
-@Entity//achu
-@Table(name = "EMPLOYEE")
+@Document(value = "EMPLOYEE")
 @Data
 @Builder
 @NoArgsConstructor
@@ -45,25 +48,24 @@ import lombok.NoArgsConstructor;
 public class EmployeeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;//Long
 
-    @Column(name = "FIRST_NAME")
+//    @Column(name = "FIRST_NAME")
     private String firstName;
-
-    @Column(name = "LAST_NAME")
+//
+//    @Column(name = "LAST_NAME")
     private String lastName;
-
-    @Column(name = "EMAIL")
+//
+//    @Column(name = "EMAIL")
     private String email;
-
-    @Column(name = "PHONE")
+//
+//    @Column(name = "PHONE")
     private String phone;
-
-    @Column(name = "ADDRESS")
+//
+//    @Column(name = "ADDRESS")
     private String address;
-
-    @Column(name = "ROLE")
+//
+//    @Column(name = "ROLE")
     private String role;
 
 }

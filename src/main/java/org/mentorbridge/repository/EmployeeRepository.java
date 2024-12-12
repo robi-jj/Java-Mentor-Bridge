@@ -1,8 +1,8 @@
 package org.mentorbridge.repository;
 
 import org.mentorbridge.entity.EmployeeEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.Optional;
+//import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * Repository interface for managing EmployeeEntity instances.
@@ -11,6 +11,7 @@ import java.util.Optional;
 
  * The primary managed entity is EmployeeEntity, with Long as the ID type.
  */
-public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
-    EmployeeEntity findById(long id);
+
+public interface EmployeeRepository extends MongoRepository<EmployeeEntity, Long> {
+    EmployeeEntity findByIdAndFirstName(long id, String firstName);
 }

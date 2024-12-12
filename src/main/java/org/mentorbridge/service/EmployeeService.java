@@ -6,6 +6,9 @@ import org.mentorbridge.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.stream.Collectors;
+
 /**
  * Service class for handling operations related to employees.
  * It provides functionality to add new employees to the system by
@@ -44,8 +47,8 @@ public class EmployeeService {
                 .build();
     }
 
-    public EmployeeDTO getEmployee(long id) {
-        EmployeeEntity savedEntity = employeeRepository.findById(id);
+    public EmployeeDTO getEmployee(long id, String firstName) {
+        EmployeeEntity savedEntity = employeeRepository.findByIdAndFirstName(id, firstName);
         return EmployeeDTO.builder()
                 .empId(savedEntity.getId())
                 .firstName(savedEntity.getFirstName())
@@ -55,5 +58,4 @@ public class EmployeeService {
                 .address(savedEntity.getAddress()) // Return the address
                 .build();
     }
-
 }

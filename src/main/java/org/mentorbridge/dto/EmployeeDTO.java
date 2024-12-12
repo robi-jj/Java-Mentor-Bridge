@@ -1,5 +1,7 @@
 package org.mentorbridge.dto;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,5 +27,5 @@ public class EmployeeDTO {
     private String email;
     private String phone;
     private String address; // Ensure this field exists
-
+    private LocalDate joinDate;
 }
